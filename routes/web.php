@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::get('/dashboard', function () {
@@ -30,6 +30,9 @@ Route::middleware('auth')->group(function () {
 
 });
 
-Route::resource('coffee', CoffeeController::class);
+Route::group(['middleware => auth'], function(){
+    Route::resource('coffee', CoffeeController::class);
+});
+
 
 require __DIR__.'/auth.php';

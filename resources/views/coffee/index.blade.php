@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
-    </script>
-    <title>Order</title>
-</head>
-
+@extends('template.master')
+@section('body_section')
 <body>
     <div class="container">
         <h2 class="text-center">Order Details</h2><br>
@@ -20,7 +7,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{ route('coffee.create') }}" class="btn btn-info lg">Place an Order</a>
+                        <a href="{{ route('coffee.create') }}" class="btn btn-info lg">Place your Order</a>
                     </div>
                     <div class="card-body">
                         <table class="table table-sm table-stripped table-bordered">
@@ -41,11 +28,13 @@
                                         <th>
                                             <a href="{{ route('coffee.edit', $coffee->id) }}"
                                                 class="btn btn-sm btn-success">Edit</a>
-                                            <form action="{{ route('coffee.destroy',$coffee->id) }}" method="post">
-                                                @method('DELETE')
-                                                @csrf
-                                                <input class="btn btn-sm btn-danger" type="submit" value="Delete" />
-                                            </form>
+                                                @can('delete_order')
+                                                <form action="{{ route('coffee.destroy', $coffee->id) }}" method="post">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <input class="btn btn-sm btn-danger" type="submit" value="Delete" />
+                                                </form>
+                                                @endcan
                                         </th>
                                     </tr>
                                 @endforeach
@@ -57,5 +46,4 @@
         </div>
     </div>
 </body>
-
-</html>
+@endsection

@@ -3,8 +3,6 @@
 namespace Tests\Unit;
 
 use App\Models\Coffee;
-use App\Models\User;
-use Faker\Factory;
 use Illuminate\Testing\Fluent\AssertableJson;
 use Tests\TestCase;
 // use PHPUnit\Framework\TestCase;
@@ -39,6 +37,5 @@ class CoffeeTest extends TestCase
         ]);
 
     }
-
 
 }

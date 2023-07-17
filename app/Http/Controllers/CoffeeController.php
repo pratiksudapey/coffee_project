@@ -84,6 +84,7 @@ class CoffeeController extends Controller
      */
     public function destroy(string $id)
     {
+        $this->authorize('delete_order');
         $coffee = Coffee::find($id);
         $coffee->delete();
         return redirect()->route("coffee.index");
