@@ -9,8 +9,8 @@ class Coffee extends Model
 {
     use HasFactory;
 
-    public function category()
+    public function user()
     {
-      return $this->hasOne(Category::class);
+      return $this->hasMany(Coffee::class);
     }
 }

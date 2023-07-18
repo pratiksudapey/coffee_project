@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Coffee;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class CoffeeController extends Controller
@@ -12,6 +14,12 @@ class CoffeeController extends Controller
     /**
      * Display a listing of the resource.
      */
+
+     public function __construct()
+     {
+       $this->middleware('auth');
+     }
+
     public function index()
     {
         $coffees = Coffee::all();
@@ -40,6 +48,7 @@ class CoffeeController extends Controller
           $coffee->name = $request->name;
           $coffee->quantity = $request->quantity;
           $coffee->description = $request->description;
+          $coffee->user_id   = Auth::user()->id;
           $coffee->save();
           return redirect()->back();
     }
