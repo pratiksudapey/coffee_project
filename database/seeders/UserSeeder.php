@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
             'name'=>'User',
             'email'=>'user@gmail.com',
             'is_admin'=>'0',
-            'password'=> bcrypt('user123'),
+            'password'=> bcrypt('user1234'),
         ]);
     }
 }
