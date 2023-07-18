@@ -24,9 +24,17 @@ password : user1234
 We can create multiple users accounts.
 
 ROLE:
+
+
 User
+
+
 User account can create a coffee order, edit the order and view the order history.
+
+
 Admin
+
+
 Admin account can create a coffee order, edit the order, view the order history and delete the order.
 
 
