@@ -31,7 +31,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::group(['middleware => auth'], function(){
-    Route::resource('coffee', CoffeeController::class);
+    Route::resource('coffees', CoffeeController::class);
 });
 
 
