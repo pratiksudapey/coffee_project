@@ -22,8 +22,15 @@ class CoffeeController extends Controller
 
     public function index()
     {
-        $coffees = Coffee::all();
-        return view("coffee.index", compact('coffees'));
+        // $coffees = Coffee::all();
+        // return view("coffee.index", compact('coffees'));
+        if(Auth::user()->is_admin=='1'){
+            $coffees = Coffee::all();
+            return view("coffee.index", compact('coffees'));
+        }else{
+            $coffees = Coffee::where('user_id', Auth::user()->id)->get();
+            return view("coffee.index", compact('coffees'));
+        }
     }
 
     /**

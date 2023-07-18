@@ -16,7 +16,7 @@ class CoffeeSeeder extends Seeder
         DB::table("coffees")->insert([
             'name' => 'Black Coffee',
             'quantity' => '2',
-            'description' => 'black coffee is black',
+            'description' => 'black coffee with 1 spoon sugar',
         ]);
     }
 }

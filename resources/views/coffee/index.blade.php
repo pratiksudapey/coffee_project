@@ -22,9 +22,9 @@
                             <tbody>
                                 @foreach ($coffees as $coffee)
                                     <tr>
-                                        <th>{{ $coffee->name }}</th>
-                                        <th>{{ $coffee->quantity }}</th>
-                                        <th>{{ $coffee->description }}</th>
+                                        <td>{{ $coffee->name }}</td>
+                                        <td>{{ $coffee->quantity }}</td>
+                                        <td>{{ $coffee->description }}</td>
                                         <th>
                                             <a href="{{ route('coffees.edit', $coffee->id) }}"
                                                 class="btn btn-sm btn-success">Edit</a>
