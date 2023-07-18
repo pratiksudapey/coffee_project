@@ -7,7 +7,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{ route('coffee.create') }}" class="btn btn-info lg">Place your Order</a>
+                        <a href="{{ route('coffees.create') }}" class="btn btn-info lg">Place your Order</a>
                     </div>
                     <div class="card-body">
                         <table class="table table-sm table-stripped table-bordered">
@@ -26,10 +26,10 @@
                                         <th>{{ $coffee->quantity }}</th>
                                         <th>{{ $coffee->description }}</th>
                                         <th>
-                                            <a href="{{ route('coffee.edit', $coffee->id) }}"
+                                            <a href="{{ route('coffees.edit', $coffee->id) }}"
                                                 class="btn btn-sm btn-success">Edit</a>
                                                 @can('delete_order')
-                                                <form action="{{ route('coffee.destroy', $coffee->id) }}" method="post">
+                                                <form action="{{ route('coffees.destroy', $coffee->id) }}" method="post">
                                                     @method('DELETE')
                                                     @csrf
                                                     <input class="btn btn-sm btn-danger" type="submit" value="Delete" />

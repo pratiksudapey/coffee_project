@@ -17,10 +17,10 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{ route('coffee.index') }}" class="btn btn-info lg">Order History</a>
+                        <a href="{{ route('coffees.index') }}" class="btn btn-info lg">Order History</a>
                     </div>
                     <div class="card-body">
-                        <form action="{{ route('coffee.update', $coffee->id) }}" method="post"
+                        <form action="{{ route('coffees.update', $coffee->id) }}" method="post"
                             enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
